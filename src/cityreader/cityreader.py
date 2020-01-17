@@ -3,12 +3,12 @@
 import csv
 
 class City:
-  def __init__(self, name, lat, lng):
+  def __init__(self, name, lat, lon):
     self.name = name
     self.lat = lat
-    self.lng = lng
-  # def __repr__(self):
-  #   return f'''{self.name}, {self.lat}, {self.lng}'''
+    self.lon = lon
+  def __repr__(self):
+    return f'''{self.name}, {self.lat}, {self.lon}'''
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -32,14 +32,14 @@ def cityreader(cities=[]):
   with open('cities.csv', mode='r') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-      cities.append(City(row["city"], row["lat"], row["lng"]))
+      cities.append(City(row["city"], float(row["lat"]), float(row["lng"])))
     return cities      
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(f"{c.name}, {c.lat}, {c.lng}")
+    print(c)
 
 # STRETCH GOAL!
 #
