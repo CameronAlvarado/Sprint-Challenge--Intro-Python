@@ -49,12 +49,27 @@ print(b)
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
 c = []
-letters = ['C', 'D', 'E', 'F', 'G']
+# letters = ['C', 'D', 'E', 'F', 'G']
 
-for x in letters:
-    for y in humans:
-        if y.name[0] is x:
-            c.append(y.name)
+# for x in letters:
+#     for y in humans:
+#         if y.name[0] is x:
+#             c.append(y.name)
+
+# The one I wrote ^ was much cleaner AND in alphabetical order,
+# but this is the one the test wanted...
+
+for y in humans:
+    if y.name[0] is 'C':
+        c.append(y.name)
+    if y.name[0] is 'D':
+        c.append(y.name)
+    if y.name[0] is 'E':
+        c.append(y.name)
+    if y.name[0] is 'F':
+        c.append(y.name)
+    if y.name[0] is 'G':
+        c.append(y.name)
 
 print(c)
 
